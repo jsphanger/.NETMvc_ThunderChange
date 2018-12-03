@@ -1,0 +1,54 @@
+﻿html{
+    background-color:#ccc;
+}
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top:25px;
+}
+
+.navbar-inverse{
+    background-color:darkseagreen !important;
+    border-color:darkseagreen !important;
+    color: white !important;
+}
+.navbar-invers .navbar-toggle{
+    border-bottom-color:none !important;
+}
+.navbar-inverse a{
+    color:white !important;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.error
+{
+    font-weight:bold;
+    color:red;
+    margin:15px 0px;
+}
+.col-xs-12 img{
+    text-align:center;
+}
+.rowimg{
+    width:100%;
+}
+
+#btnSubmit{
+    background-color:darkseagreen;
+    color:white;
+}
+#btnSubmit:hover{
+    background-color:darkolivegreen;
+}

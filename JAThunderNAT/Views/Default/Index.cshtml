@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Thunder Change";
+}
+
+<script>
+    $(function () {
+        $('#btnSubmit').click(function () {
+            var value = $('#txtTotalAmount').val();
+            $('#txtTotalAmount').val(value.replace('$', ''));
+        });
+    });
+</script>
+
+<div class="row">
+    <div class="hidden-xs hidden-sm col-md-3"><img src="@Url.Content("~/Content/Images/ChangeMachine.jpg")" alt="Change Machine" class="rowimg" /></div>
+    <div class="col-md-9">
+        <h2>Thunder Change</h2>
+        <p>Welcome to thunder change a revolutionary new way to despense th most optimal coins! Simply enter the amount to be changed in the box below to begin.</p>
+    
+        @if (ViewBag.ErrorMsg != null)
+        {
+            <p class="error">@ViewBag.ErrorMsg</p>
+        }
+
+        <!-- Input entry -->
+        <form enctype="multipart/form-data" method="post">
+
+            <input id="txtTotalAmount" name="txtTotalAmount" type="text" placeholder="ex: $1.23" required />
+            <input id="btnSubmit" type="submit" value="Make Change!" class="btn btn-success" />
+
+        </form>
+
+        @if (ViewBag.CountedChange != null)
+        {
+            <!-- Results -->
+            <h2><em>@string.Format("Change for ${0:0.00}", ViewBag.OriginalAmt)</em></h2>
+
+            <div class="row">
+                @foreach (KeyValuePair<string, int> kvp in (Dictionary<string, int>)ViewBag.CountedChange)
+                {
+                        <div class="coinbox col-sm-2 col-xs-12">
+                            <img src="@Url.Content("~/Content/Images/" + kvp.Key + ".png")" width="40" alt="Coin" /> X @kvp.Value
+                            <br />
+                            @kvp.Key
+                        </div>
+                }
+            </div>
+        }
+    
+    </div>
+    
+</div>
